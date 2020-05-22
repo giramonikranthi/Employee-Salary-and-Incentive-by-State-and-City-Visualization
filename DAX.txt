@@ -1,0 +1,20 @@
+Column = CALCULATE(MIN(Table1[TransitDays]),FILTER(Table1,Table1[Plant]=EARLIER(Table1[Plant])))
+
+Min Transit Days by Plant =
+CALCULATE ( MIN ( Table[Transit Days] ), ALLEXCEPT ( Table, Table[Plant] ) )
+
+
+BestPerson =
+MAXX (
+    TOPN (
+        1,
+        VALUES ( TableName[Name] ),
+        CALCULATE ( MAX ( TableName[Score] ) ), DESC
+    ),
+    [Name]
+)
+
+
+Max Salary = MAXX ( TOPN( 1, VALUES( 'Employee Data'[State] ), CALCULATE(MAX ( 'Employee Data'[Salary LPA] ) ), DESC ), [State])
+
+EMP Count = CALCULATE(COUNT( ( 'Employee Data'[State] ) ))
